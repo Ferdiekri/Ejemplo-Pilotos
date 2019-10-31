@@ -7,7 +7,8 @@ app
   .controller("pilotoCarrerasController", PilotoCarrerasController)
   .controller("pilotoDetalleController", PilotoDetalleController)
   .controller("pilotoController", PilotoController)
-  .controller("circuitosController", CircuitosController);
+  .controller("circuitosController", CircuitosController)
+  .controller("circuitoController", CircuitoController);
 
 app.config([
   "$urlRouterProvider",
@@ -79,7 +80,19 @@ app.config([
             (ergastService: IErgastService) => ergastService.getCircuitos()
           ]
         }
-      });
+      })
+      .state("app.circuito", {
+        url: "/circuito:id",
+        templateUrl: "views/circuito.html",
+        controller: CircuitoController,
+        resolve: {
+            circuitoDetalle: [
+                "ergastService",
+                function (ergastService) { return ergastService.getCircuito(); }
+            ]
+        },
+        params: { id: null }
+    });
   }
 ]);
 

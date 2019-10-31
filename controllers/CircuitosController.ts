@@ -7,8 +7,6 @@ interface ICircuitosControllerScope extends ng.IScope {
     public titulo: string;
     public circuitos = Array<ICircuito>();
     public localizaciones = [];
-    public columna: string;
-    public orden: string;
   
     public static $inject = ["$scope", "circuitosMundial"];
   
@@ -30,4 +28,3 @@ interface ICircuitosControllerScope extends ng.IScope {
     }
 
   } // class CircuitosController
-  

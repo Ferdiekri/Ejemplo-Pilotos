@@ -4,9 +4,10 @@
  */
 
  interface IErgastService {
-  getDrivers(): angular.IPromise<any>;
-  getDriverDetails(id: string): angular.IPromise<any>;
-  getDriverRaces(id: string): angular.IPromise<any>;
+  getDrivers(): angular.IPromise<IClasificacion[]>;
+  getDriverDetails(id: string): angular.IPromise<IDriver[]>;
+  getDriverRaces(id: string): angular.IPromise<IRaces[]>;
+  getCircuito(id: string): angular.IPromise<ICircuito[]>;
 
   /**
    * 
@@ -44,6 +45,14 @@ class ErgastService implements IErgastService {
       .get<any>("http://ergast.com/api/f1/2017/drivers/" + id + "/results.json")
       .then(response => {
         return response.data.MRData.RaceTable.Races;
+      });
+  }
+
+  public getCircuito = id => {
+    return this.http
+      .get<any>("http://ergast.com/api/f1/circuits/" + id + "/results.json")
+      .then(response => {
+        return response.data.MRData.CircuitTable;
       });
   }
 

@@ -41,7 +41,7 @@
             <tbody>
                 <tr ng-repeat="circuito in vm.circuitos | filter:buscar | orderBy:columna:orden">
                     <th scope="row">{{ circuito.circuitId }}</th>
-                    <td>{{ circuito.circuitName }}</td>
+                   <!-- <td><a href="#!/app/circuito/{{ circuito.circuitId }}">{{ circuito.circuitName }}</a></td>-->
                     <td>{{ circuito.Location.locality }} ({{ circuito.Location.country }})</td>
                     <td><a href="{{ circuito.url }}" target="_blank">Wikipedia</a></td>
                 </tr>

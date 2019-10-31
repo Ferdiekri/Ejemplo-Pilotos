@@ -20,6 +20,13 @@ var ErgastService = (function () {
                 return response.data.MRData.RaceTable.Races;
             });
         };
+        this.getCircuito = function (id) {
+            return _this.http
+                .get("http://ergast.com/api/f1/circuits/" + id + "/results.json")
+                .then(function (response) {
+                return response.data.MRData.CircuitTable;
+            });
+        };
         this.getCircuitos = function () {
             var url = 'http://ergast.com/api/f1/circuits.json';
             console.trace("ErgastService getCircuitos");

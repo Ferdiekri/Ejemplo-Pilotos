@@ -3,11 +3,11 @@ interface ILocation {
     lat: string;
     long: string;
     locality: string;
-   }
+}
   
-   interface ICircuito {
+interface ICircuito {
     Location: ILocation;
     circuitId: string; 
     circuitName: string;
     url: string;
-   }
+}
