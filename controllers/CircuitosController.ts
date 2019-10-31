@@ -5,7 +5,7 @@ interface ICircuitosControllerScope extends ng.IScope {
   class CircuitosController implements ng.IController {
 
     public titulo: string;
-    public circuitos = [];
+    public circuitos = Array<ICircuito>();
     public localizaciones = [];
     public columna: string;
     public orden: string;

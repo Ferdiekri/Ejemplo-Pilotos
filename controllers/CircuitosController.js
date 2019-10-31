@@ -1,7 +1,7 @@
 var CircuitosController = (function () {
     function CircuitosController($scope, circuitosMundial) {
         this.$scope = $scope;
-        this.circuitos = [];
+        this.circuitos = Array();
         this.localizaciones = [];
         console.debug('CircuitosController constructor');
         $scope.vm = this;

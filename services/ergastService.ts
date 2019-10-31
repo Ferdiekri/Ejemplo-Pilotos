@@ -3,21 +3,7 @@
  *   Se deben crear los interfaces necesarios a partir de la documentacion de ergast
  */
 
- interface ILocation {
-  country: string;
-  lat: string;
-  long: string;
-  locality: string;
- }
-
- interface ICircuito {
-  Location: ILocation;
-  circuitId: string; 
-  circuitName: string;
-  url: string;
- }
-
-interface IErgastService {
+ interface IErgastService {
   getDrivers(): angular.IPromise<any>;
   getDriverDetails(id: string): angular.IPromise<any>;
   getDriverRaces(id: string): angular.IPromise<any>;
