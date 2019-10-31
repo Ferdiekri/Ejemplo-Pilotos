@@ -1,0 +1,61 @@
+<h2>{{ vm.titulo }}</h2>
+<hr>
+<!-- 
+<pre><code>
+    {{ vm.circuitos | json }}
+</code></pre>
+
+{
+    "circuitId": "adelaide",
+    "url": "http://en.wikipedia.org/wiki/Adelaide_Street_Circuit",
+    "circuitName": "Adelaide Street Circuit",
+    "Location": {
+      "lat": "-34.9272",
+      "long": "138.617",
+      "locality": "Adelaide",
+      "country": "Australia"
+    }
+  },
+-->
+
+<div class="row">
+    <div class="col-8">
+        <hr>
+        <input ng-model="buscar.circuitName"
+            class="form-control" type="text" placeholder="Buscar circuito por nombre." autofocus>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre
+                    <div class="botones pl-2">
+                        <i class="fas fa-sort-up" ng-click="columna='circuitName'; orden=!orden"></i>
+                        <i class="fas fa-sort-down" ng-click="columna='circuitName'; orden=!orden"></i>
+                    </div>
+                </th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Más información</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="circuito in vm.circuitos | filter:buscar | orderBy:columna:orden">
+                    <th scope="row">{{ circuito.circuitId }}</th>
+                    <td>{{ circuito.circuitName }}</td>
+                    <td>{{ circuito.Location.locality }} ({{ circuito.Location.country }})</td>
+                    <td><a href="{{ circuito.url }}" target="_blank">Wikipedia</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div> <!-- col1 tabla -->
+
+    <div class="col-4">
+        <!--<a target="_blank" href="https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/examples/marker-simple">Documentación Oficial</a>
+        <div id="map"></div>-->
+        <pre><code>
+            {{ vm.localizaciones | json }}
+        </code></pre>
+    </div> <!-- col2 mapa -->
+</div>
+
+
